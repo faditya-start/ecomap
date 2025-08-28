@@ -1,68 +1,38 @@
+@import "tailwindcss";
+
+
+/* Custom Colors */
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  --green-light: #E8F5E9;
+  --green-light-hover: #D0EBDA;
+  --green-light-active: #B8E1CB;
+  --green-normal: #43A047;
+  --green-normal-hover: #388E3C;
+  --green-normal-active: #2E7D32;
+  --green-dark: #1B5E20;
+  --green-dark-hover: #184D1A;
+  --green-dark-active: #133E14;
+  --green-darker: #0B290C;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  --grey-light: #F8F8F8;
+  --grey-light-hover: #F2F2F2;
+  --grey-light-active: #E5E5E5;
+  --grey-normal: #C9C9C9;
+  --grey-normal-hover: #B1B1B1;
+  --grey-normal-active: #9C9C9C;
+  --grey-dark: #6E6E6E;
+  --grey-dark-hover: #5C5C5C;
+  --grey-dark-active: #494949;
+  --grey-darker: #252525;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
+/* Custom classes */
+.bg-green-normal { background-color: var(--green-normal); }
+.bg-green-light { background-color: var(--green-light); }
+.bg-grey-light { background-color: var(--grey-light); }
+.text-green-normal { color: var(--green-normal); }
+.text-grey-dark { color: var(--grey-dark); }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
+/* Hover & Active */
+.hover\:bg-green-normal-hover:hover { background-color: var(--green-normal-hover); }
+.active\:bg-green-normal-active:active { background-color: var(--green-normal-active); }
