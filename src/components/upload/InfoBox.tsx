@@ -9,7 +9,7 @@ export default function InfoBox() {
         <ul className="list-disc list-inside text-gray-600 mt-1 space-y-1">
           <li>Data harus sesuai dengan format sistem</li>
           <li>Pastikan ukuran file tidak lebih dari 10MB</li>
-          <li>Proses analisis memerlukan waktu ± 5 detik</li>
+          <li>Proses analisis memerlukan waktu ± 5 - 10 menit</li>
         </ul>
       </div>
     </div>
