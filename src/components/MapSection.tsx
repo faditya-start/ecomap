@@ -120,7 +120,7 @@ export default function MapSection() {
                   </table>
 
                   <button 
-                    onClick={() => navigate(`/company/${c.id}`)}
+                    onClick={() => navigate(`/company-detail`)}
                     className="mt-3 w-full bg-green-600 hover:bg-green-700 text-white py-1.5 rounded-md text-sm font-medium">
                     Lihat Selengkapnya
                   </button>

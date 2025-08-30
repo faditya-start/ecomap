@@ -1,6 +1,5 @@
 import StatusPerizinan from "../components/StatusPerizinan";
 import RangkumanAnalisis from "../components/RangkumanAnalisis";
-import DataPerusahaanList from "../components/DataPerusahaanList";
 import ProgresPemeriksaan from "../components/ProgresPemeriksaan";
 
 export default function DashboardAnalisis() {
@@ -10,7 +9,6 @@ export default function DashboardAnalisis() {
       <StatusPerizinan />
       <ProgresPemeriksaan />
       <RangkumanAnalisis />
-      <DataPerusahaanList />
     </div>
   );
 }
