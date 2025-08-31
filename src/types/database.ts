@@ -28,6 +28,19 @@ export interface EnvironmentData {
   status: "normal" | "warning" | "danger";
 }
 
+export interface FormData {
+  jenisDataLingkungan: string;
+  tanggalInspeksi: string;
+  perusahaanId: string;
+  lokasiPerusahaan: string;
+  jenisPerusahaan: string;
+  statusPerusahaan: string;
+  nomorPemeriksaan: string;
+  catatanPemeriksaan: string;
+  petugasPemeriksa: string;
+  uploadedFile: File | null;
+}
+
 // summary data untuk dashboard
 export type CompanySummary = Pick<
   Company,
