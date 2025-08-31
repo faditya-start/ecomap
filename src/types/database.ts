@@ -27,3 +27,9 @@ export interface EnvironmentData {
   unit: string | null;
   status: "normal" | "warning" | "danger";
 }
+
+// summary data untuk dashboard
+export type CompanySummary = Pick<
+  Company,
+  "id" | "nama_perusahaan" | "status_patuh" | "status_persetujuan"
+>;
