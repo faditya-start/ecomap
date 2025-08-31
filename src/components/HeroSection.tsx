@@ -7,13 +7,7 @@ export default function HeroSection() {
       <p className="text-gray-600 text-sm">
         Lihat Perusahaan yang Ada di Kabupaten Bekasi
       </p>
-      <div>
-        <input
-          type="text"
-          placeholder="Cari Perusahaan..."
-          className="mt-2 w-full p-3 bg-green-light rounded-xl shadow-sm focus:ring-2 focus:ring-green-500 focus:outline-none"
-        />
-      </div>
+      
     </header>
   );
 }

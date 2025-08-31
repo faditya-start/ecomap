@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom';
+
 const perusahaan = [
   "Perusahaan Ciremai Jaya",
   "Perusahaan Tanjung",
@@ -5,6 +7,12 @@ const perusahaan = [
 ];
 
 export default function DataPerusahaanList() {
+  const navigate = useNavigate();
+
+  const handleCompanyClick = () => {
+    navigate('/company-detail');
+  };
+
   return (
     <div className="bg-white p-4 rounded-2xl shadow-md mt-6">
       <h2 className="text-lg font-semibold text-green-700">Data Perusahaan</h2>
@@ -17,7 +25,8 @@ export default function DataPerusahaanList() {
         {perusahaan.map((nama, i) => (
           <li
             key={i}
-            className="p-3 rounded-xl bg-green-50 hover:bg-green-100 cursor-pointer"
+            className="p-3 rounded-xl bg-green-50 hover:bg-green-100 cursor-pointer transition-colors"
+            onClick={handleCompanyClick}
           >
             {i + 1}. {nama}
           </li>

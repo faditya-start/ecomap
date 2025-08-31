@@ -1,74 +1,60 @@
-import { FaClipboardCheck, FaRegBuilding } from "react-icons/fa";
+import { FaClipboardCheck, FaUserTie, FaCalendarAlt, FaStickyNote } from "react-icons/fa";
 import DetailPerusahaanCard from "./DetailPerusahaanCard";
+import type { Inspection } from "../types/database";
 
-interface RiwayatPemeriksaan {
-  tanggal: string;
-  petugas: string;
+interface StatusPemeriksaanProps {
+  inspections: Inspection[];
 }
 
-const riwayatPemeriksaan: RiwayatPemeriksaan[] = [
-  { tanggal: "15/7/2025", petugas: "Budi Santoso" },
-  { tanggal: "15/7/2025", petugas: "Budi Santoso" },
-  { tanggal: "15/7/2025", petugas: "Budi Santoso" },
-];
-
-export default function StatusPemeriksaan() {
+export default function StatusPemeriksaanPerusahaan({ inspections }: StatusPemeriksaanProps) {
   return (
-    <DetailPerusahaanCard title="Status & Pemeriksaan" icon={<FaClipboardCheck />}>
-      <div className="space-y-3">
-        <div className="flex flex-col">
-          <span className="text-green-normal font-medium">Status Persetujuan</span>
-          <div className="flex items-center gap-2">
-            <span className="bg-green-100 text-green-700 text-xs px-2 py-0.5 rounded">
-              Telah Disetujui
-            </span>
-          </div>
-        </div>
-
-        <div className="flex flex-col">
-          <span className="text-green-normal font-medium">Pemeriksaan Terakhir</span>
-          <div className="flex items-center gap-2">
-            <span className="font-medium">15/7/2025</span>
-            <span className="bg-green-100 text-green-700 text-xs px-2 py-0.5 rounded">
-              Punya
-            </span>
-          </div>
-        </div>
-
-        <div className="flex flex-col">
-          <span className="text-green-normal font-medium">Petugas Pemeriksa</span>
-          <div className="flex items-center gap-2">
-            <span className="flex items-center gap-1">
-              
-              <span>Budi Santoso</span>
-            </span>
-          </div>
-        </div>
-
-        <div className="flex flex-col">
-          <span className="text-green-normal font-medium">Catatan Pemeriksaan</span>
-          <p className="text-sm mt-1">
-            Semua parameter lingkungan dalam batas normal. Sistem pengolahan limbah berfungsi dengan baik.
-          </p>
-        </div>
-
-        <div className="flex flex-col mt-4">
-          <span className="text-green-normal font-medium mb-2">Riwayat Pemeriksaan</span>
-          <div className="space-y-2">
-            {riwayatPemeriksaan.map((riwayat, index) => (
-              <div
-                key={index}
-                className="flex items-center gap-2 p-2 bg-gray-50 rounded-lg"
-              >
-                <FaRegBuilding className="text-gray-400" />
-                <div className="flex-1">
-                  <p className="text-sm">{riwayat.tanggal}</p>
-                  <p className="text-xs text-gray-500">{riwayat.petugas}</p>
-                </div>
+    <DetailPerusahaanCard title="Status Pemeriksaan" icon={<FaClipboardCheck />}>
+      <div className="space-y-4">
+        {inspections.length === 0 ? (
+          <p className="text-gray-500 text-sm">Belum ada data pemeriksaan.</p>
+        ) : (
+          inspections.map((insp) => (
+            <div
+              key={insp.id}
+              className="rounded-lg p-3 bg-gray-50 shadow-sm space-y-2"
+            >
+              {/* Tanggal Pemeriksaan */}
+              <div className="flex items-center gap-2">
+                <FaCalendarAlt className="text-gray-400" />
+                <span className="font-medium">
+                  {new Date(insp.tanggal_pemeriksaan).toLocaleDateString("id-ID")}
+                </span>
               </div>
-            ))}
-          </div>
-        </div>
+
+              {/* Petugas Pemeriksa */}
+              <div className="flex items-center gap-2">
+                <FaUserTie className="text-gray-400" />
+                <span>{insp.petugas_pemeriksa}</span>
+              </div>
+
+              {/* Status Pemeriksaan */}
+              <div className="flex items-center gap-2">
+                <span
+                  className={`text-xs px-2 py-0.5 rounded ${
+                    insp.status_pemeriksaan === "Normal"
+                      ? "bg-green-100 text-green-700"
+                      : "bg-red-100 text-red-700"
+                  }`}
+                >
+                  {insp.status_pemeriksaan}
+                </span>
+              </div>
+
+              {/* Catatan Pemeriksaan */}
+              {insp.catatan_pemeriksaan && (
+                <div className="flex items-center gap-2 text-sm text-gray-600">
+                  <FaStickyNote className="text-gray-400" />
+                  <span>{insp.catatan_pemeriksaan}</span>
+                </div>
+              )}
+            </div>
+          ))
+        )}
       </div>
     </DetailPerusahaanCard>
   );
